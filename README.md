@@ -1,2 +1,3 @@
-# tapi-ok-tapioca-chips-online-store
-Exported from Caffeine project: TAPI OK - Tapioca Chips Online Store
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "TAPI OK brand website with permanent #D32F2F red and white theme",
+  "architectural_notes": [
+    "Header color fixed to #D32F2F regardless of theme changes",
+    "Official brand color: #D32F2F (red) with white accents",
+    "Brand logo features TAPI OK text with orange/yellow fruit element and green leaf"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-replace-the-current-tapi-ok-logo-in-the-header-with-the-uploaded-brand-logo-image-chatgpt-image-feb-23-2026-12-00-04-pm-1-1-png-the-logo-must-be-displayed-exactly-as-provided-without-modifications",
+      "title": "Replace the current TAPI OK logo in the header with the uploaded brand logo image (ChatGPT Image Feb 23, 2026, 12_00_04 PM (1)-1.png). The logo must be displayed exactly as provided without modifications.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-set-the-header-background-color-to-d32f2f-red-as-a-permanent-fixed-color-that-never-changes-when-the-theme-switches-between-light-and-dark-mode",
+      "title": "Set the header background color to #D32F2F (red) as a permanent, fixed color that never changes when the theme switches between light and dark mode.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-website-theme-to-use-d32f2f-red-as-the-official-brand-color-throughout-the-application-replace-existing-brand-color-variables-and-update-ui-elements-that-use-the-primary-brand-color",
+      "title": "Update the website theme to use #D32F2F (red) as the official brand color throughout the application. Replace existing brand color variables and update UI elements that use the primary brand color.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-current-purple-chip-image-from-the-home-page-and-replace-it-with-the-uploaded-tapi-ok-brand-logo-image-chatgpt-image-feb-23-2026-12-00-04-pm-1-1-png",
+      "title": "Remove the current purple chip image from the home page and replace it with the uploaded TAPI OK brand logo image (ChatGPT Image Feb 23, 2026, 12_00_04 PM (1)-1.png).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Replace header logo with uploaded TAPI OK brand logo",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Set permanent #D32F2F red header color that never changes with theme",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Make #D32F2F the official brand and website theme color",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Replace purple chip image on home page with uploaded brand logo",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "projectName": "TAPI OK",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

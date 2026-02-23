@@ -1,0 +1,93 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-replace-the-current-tapi-ok-logo-in-the-header-with-the-uploaded-brand-logo-image-chatgpt-image-feb-23-2026-12-00-04-pm-1-1-png-the-logo-must-be-displayed-exactly-as-provided-without-modifications",
+      "featureTitle": "Replace the current TAPI OK logo in the header with the uploaded brand logo image (ChatGPT Image Feb 23, 2026, 12_00_04 PM (1)-1.png). The logo must be displayed exactly as provided without modifications.",
+      "files": [
+        "frontend/src/components/Header.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "http-outcalls@3.0.0",
+        "authorization@4.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-set-the-header-background-color-to-d32f2f-red-as-a-permanent-fixed-color-that-never-changes-when-the-theme-switches-between-light-and-dark-mode",
+      "featureTitle": "Set the header background color to #D32F2F (red) as a permanent, fixed color that never changes when the theme switches between light and dark mode.",
+      "files": [
+        "frontend/src/components/Header.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "http-outcalls@3.0.0",
+        "authorization@4.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-website-theme-to-use-d32f2f-red-as-the-official-brand-color-throughout-the-application-replace-existing-brand-color-variables-and-update-ui-elements-that-use-the-primary-brand-color",
+      "featureTitle": "Update the website theme to use #D32F2F (red) as the official brand color throughout the application. Replace existing brand color variables and update UI elements that use the primary brand color.",
+      "files": [
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "http-outcalls@3.0.0",
+        "authorization@4.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-remove-the-current-purple-chip-image-from-the-home-page-and-replace-it-with-the-uploaded-tapi-ok-brand-logo-image-chatgpt-image-feb-23-2026-12-00-04-pm-1-1-png",
+      "featureTitle": "Remove the current purple chip image from the home page and replace it with the uploaded TAPI OK brand logo image (ChatGPT Image Feb 23, 2026, 12_00_04 PM (1)-1.png).",
+      "files": [
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "http-outcalls@3.0.0",
+        "authorization@4.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

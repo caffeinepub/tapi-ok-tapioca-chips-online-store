@@ -1,0 +1,76 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Replace logo with TAPI OK brand logo and set permanent #D32F2F theme color",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Replace the current TAPI OK logo in the header with the uploaded brand logo image without modifications",
+      "acceptanceCriteria": [
+        "The uploaded TAPI OK brand logo (ChatGPT Image Feb 23, 2026, 12_00_04 PM (1)-1.png) is displayed in the header",
+        "The logo is not modified, distorted, or cropped",
+        "The logo replaces any existing logo images in the Header component"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Replace the current logo image reference with the uploaded TAPI OK brand logo located at frontend/public/assets/ChatGPT Image Feb 23, 2026, 12_00_04 PM (1)-1.png. Update the img src attribute to point to the new logo file. Ensure the logo is displayed without any CSS transformations that would distort or crop it. Maintain appropriate sizing for header visibility while preserving the logo's aspect ratio."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Set the header background color to #D32F2F as a permanent fixed color that never changes with theme",
+      "acceptanceCriteria": [
+        "The header background color is set to #D32F2F",
+        "The header color remains #D32F2F in both light and dark theme modes",
+        "The header color does not change when the theme toggle is activated"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Set the header background color to #D32F2F using an inline style or a direct CSS class that bypasses the theme system. Remove any theme-aware background color classes (e.g., bg-background, bg-card) from the header element and replace with a fixed background color of #D32F2F. Ensure this color remains constant regardless of light or dark theme selection by using a non-theme-dependent approach such as inline style={{backgroundColor: '#D32F2F'}} or a custom CSS class with !important if needed."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Update the website theme to use #D32F2F as the official brand color throughout the application",
+      "acceptanceCriteria": [
+        "The primary brand color variable is set to #D32F2F in the theme configuration",
+        "Buttons, links, and brand-colored UI elements use #D32F2F",
+        "The theme color is consistently applied across all pages and components"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Update the brand color definition in the Tailwind theme configuration to #D32F2F. Locate the theme.extend.colors.brand section and change the color value to #D32F2F. This will ensure all UI elements using the brand color utility classes (e.g., bg-brand, text-brand, border-brand) will use the new red color."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update the CSS custom property for the brand color to #D32F2F. Locate the :root or theme color variable definitions and update the brand color variable to use #D32F2F. Convert the color to OKLCH format if the existing CSS uses OKLCH color space, ensuring consistency with the existing color system. Update both light and dark theme definitions if they exist separately."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Remove the purple chip image from the home page and replace it with the uploaded TAPI OK brand logo",
+      "acceptanceCriteria": [
+        "The purple chip image is removed from HomePage",
+        "The uploaded TAPI OK brand logo (ChatGPT Image Feb 23, 2026, 12_00_04 PM (1)-1.png) is displayed in its place",
+        "The replacement image is appropriately sized and positioned on the home page"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Locate the purple chip image in the HomePage component and replace its src attribute with the uploaded TAPI OK brand logo located at frontend/public/assets/ChatGPT Image Feb 23, 2026, 12_00_04 PM (1)-1.png. Remove any references to the old purple chip image. Ensure the new logo is appropriately sized and positioned within the home page layout, maintaining visual balance and hierarchy. Apply appropriate styling to ensure the logo displays clearly without distortion."
+        }
+      ]
+    }
+  ]
+}

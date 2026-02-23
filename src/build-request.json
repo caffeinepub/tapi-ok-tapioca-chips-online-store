@@ -1,0 +1,96 @@
+{
+  "kind": "build_request",
+  "title": "Replace logo with TAPI OK brand logo and set permanent #D32F2F theme color",
+  "projectName": "TAPI OK",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Replace the current TAPI OK logo in the header with the uploaded brand logo image (ChatGPT Image Feb 23, 2026, 12_00_04 PM (1)-1.png). The logo must be displayed exactly as provided without modifications.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "make this as our brand logo don't make changes in this logo place this logo as it is",
+          "remove the current TAPI OK logo and place the logo i have attached here"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The uploaded TAPI OK brand logo (ChatGPT Image Feb 23, 2026, 12_00_04 PM (1)-1.png) is displayed in the header",
+        "The logo is not modified, distorted, or cropped",
+        "The logo replaces any existing logo images in the Header component"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Set the header background color to #D32F2F (red) as a permanent, fixed color that never changes when the theme switches between light and dark mode.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "even when we change the theme don't change the header color. make it a permanent #D32F2F color"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The header background color is set to #D32F2F",
+        "The header color remains #D32F2F in both light and dark theme modes",
+        "The header color does not change when the theme toggle is activated"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Update the website theme to use #D32F2F (red) as the official brand color throughout the application. Replace existing brand color variables and update UI elements that use the primary brand color.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "make #D32F2F color the official theme of our brand and our website",
+          "don't forget about the theme color of our website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The primary brand color variable is set to #D32F2F in the theme configuration",
+        "Buttons, links, and brand-colored UI elements use #D32F2F",
+        "The theme color is consistently applied across all pages and components"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Remove the current purple chip image from the home page and replace it with the uploaded TAPI OK brand logo image (ChatGPT Image Feb 23, 2026, 12_00_04 PM (1)-1.png).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "remove the image of purple chip image from the home page and put the image i have attached here"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The purple chip image is removed from HomePage",
+        "The uploaded TAPI OK brand logo (ChatGPT Image Feb 23, 2026, 12_00_04 PM (1)-1.png) is displayed in its place",
+        "The replacement image is appropriately sized and positioned on the home page"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify the uploaded logo images in any way (no cropping, resizing effects, filters, or distortions)",
+    "The header color #D32F2F must remain constant regardless of light/dark theme selection",
+    "Do not change existing backend logic or data structures"
+  ],
+  "nonGoals": [
+    "Changing the layout or structure of the header beyond logo and color updates",
+    "Modifying product images or product-related content",
+    "Updating translation strings or multi-language support"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
