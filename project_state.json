@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "TAPI OK website project with Internet Computer/Motoko backend. Features include homepage, contact page, authentication (Internet Identity), and theme customization. Adding traditional username/password auth, backend storage for user profiles/feedback/user-generated content, and UI improvements.",
+  "architectural_notes": [
+    "Uses Internet Computer (ICP) with Motoko backend canisters for data persistence",
+    "Authentication supports Internet Identity; adding traditional username/password as alternative",
+    "User data (profiles, feedback, UGC) to be stored in Motoko backend canister"
+  ],
+  "known_issues": [
+    "Internet Identity is device-specific; cross-device login requires device linking which confuses users"
+  ],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-increase-the-size-of-the-tapi-ok-brand-logo-displayed-in-the-header-the-logo-should-be-noticeably-larger-than-its-current-size-while-remaining-proportional-and-not-breaking-the-header-layout-on-desktop-or-mobile-views",
+      "title": "Increase the size of the TAPI OK brand logo displayed in the header. The logo should be noticeably larger than its current size while remaining proportional and not breaking the header layout on desktop or mobile views.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-traditional-username-password-authentication-as-an-alternative-login-method-alongside-the-existing-internet-identity-option-users-should-be-able-to-register-a-new-account-with-a-username-email-and-password-and-log-in-with-those-credentials-from-any-device-without-device-linking-requirements-the-authmodal-and-login-ui-should-present-both-options-clearly",
+      "title": "Add traditional username/password authentication as an alternative login method alongside the existing Internet Identity option. Users should be able to register a new account with a username/email and password, and log in with those credentials from any device without device-linking requirements. The AuthModal and login UI should present both options clearly.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-frontend-feedbackform-component-to-call-the-backend-submitfeedback-function-via-the-actor-so-feedback-is-actually-stored-in-the-backend-instead-of-only-showing-a-local-success-message",
+      "title": "Update the frontend FeedbackForm component to call the backend `submitFeedback` function via the actor, so feedback is actually stored in the backend instead of only showing a local success message.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Make the header logo bigger",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add traditional username/password authentication as an alternative login method",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Add backend storage for user profiles, feedback submissions, and user-generated content",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add backend storage in the Motoko actor for user accounts created via username/password authentication. Each account record should store: unique user ID, username/email, hashed password, display name, creation timestamp, and last login timestamp. Expose backend functions to create accounts, authenticate (verify credentials), and retrieve user profile by ID.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Add backend storage in the Motoko actor for feedback submissions. Each feedback record should store: unique submission ID, the submitting user's ID (or anonymous marker), name, email, message content, and submission timestamp. Expose a `submitFeedback` function to save feedback and a `getAllFeedback` function restricted to admins to retrieve all submissions.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Add backend storage in the Motoko actor for user-generated content. Each content record should store: unique content ID, owning user's ID, content type (e.g. review, post), content body text, and creation timestamp. Expose functions to create, retrieve by user, and retrieve all (admin-only) user-generated content entries.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "TAPI OK",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode colors - OKLCH format with improved contrast */
+    --background: oklch(98% 0.01 120);
+    --foreground: oklch(20% 0.02 120);
+    --card: oklch(100% 0 0);
+    --card-foreground: oklch(20% 0.02 120);
+    --popover: oklch(100% 0 0);
+    --popover-foreground: oklch(20% 0.02 120);
+    --primary: oklch(50% 0.15 25);
+    --primary-foreground: oklch(98% 0.01 120);
+    --secondary: oklch(95% 0.02 120);
+    --secondary-foreground: oklch(20% 0.02 120);
+    --muted: oklch(95% 0.02 120);
+    --muted-foreground: oklch(45% 0.03 120);
+    --accent: oklch(95% 0.02 120);
+    --accent-foreground: oklch(20% 0.02 120);
+    --destructive: oklch(55% 0.22 25);
+    --destructive-foreground: oklch(98% 0.01 120);
+    --border: oklch(90% 0.02 120);
+    --input: oklch(90% 0.02 120);
+    --ring: oklch(50% 0.15 25);
+    --radius: 0.5rem;
+    
+    /* Brand color - #D32F2F converted to OKLCH */
+    --brand: oklch(51% 0.21 25);
+    --golden: oklch(85% 0.15 85);
+  }
+
+  .dark {
+    /* Dark mode colors - OKLCH format with improved contrast */
+    --background: oklch(15% 0.02 120);
+    --foreground: oklch(95% 0.01 120);
+    --card: oklch(18% 0.02 120);
+    --card-foreground: oklch(95% 0.01 120);
+    --popover: oklch(18% 0.02 120);
+    --popover-foreground: oklch(95% 0.01 120);
+    --primary: oklch(60% 0.15 25);
+    --primary-foreground: oklch(15% 0.02 120);
+    --secondary: oklch(25% 0.02 120);
+    --secondary-foreground: oklch(95% 0.01 120);
+    --muted: oklch(25% 0.02 120);
+    --muted-foreground: oklch(65% 0.03 120);
+    --accent: oklch(25% 0.02 120);
+    --accent-foreground: oklch(95% 0.01 120);
+    --destructive: oklch(60% 0.22 25);
+    --destructive-foreground: oklch(95% 0.01 120);
+    --border: oklch(30% 0.02 120);
+    --input: oklch(30% 0.02 120);
+    --ring: oklch(60% 0.15 25);
+    
+    /* Brand color - #D32F2F converted to OKLCH (same in dark mode) */
+    --brand: oklch(51% 0.21 25);
+    --golden: oklch(75% 0.15 85);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Homepage entrance animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 1s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+}
+
+.animation-delay-600 {
+  animation-delay: 0.6s;
+}
+
+.animation-delay-800 {
+  animation-delay: 0.8s;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

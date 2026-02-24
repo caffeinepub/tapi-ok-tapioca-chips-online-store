@@ -1,0 +1,140 @@
+{
+  "kind": "build_request",
+  "title": "Bigger Header Logo + Username/Password Auth + Backend User Data Storage",
+  "projectName": "TAPI OK",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Increase the size of the TAPI OK brand logo displayed in the header. The logo should be noticeably larger than its current size while remaining proportional and not breaking the header layout on desktop or mobile views.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-last"
+        ],
+        "quotes": [
+          "make the same logo more bigger in the header"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The header logo is visually larger than before",
+        "The logo does not overflow or break the header layout on any screen size",
+        "The logo aspect ratio is preserved"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Add traditional username/password authentication as an alternative login method alongside the existing Internet Identity option. Users should be able to register a new account with a username/email and password, and log in with those credentials from any device without device-linking requirements. The AuthModal and login UI should present both options clearly.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-last"
+        ],
+        "quotes": [
+          "Add traditional username/password authentication as an alternative login method"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can register with an email/username and password",
+        "Users can log in with their email/username and password from any device",
+        "Login succeeds and fails with appropriate error messages",
+        "Both Internet Identity and username/password options are visible in the auth modal",
+        "Credentials are validated (non-empty, password minimum length)"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add backend storage in the Motoko actor for user accounts created via username/password authentication. Each account record should store: unique user ID, username/email, hashed password, display name, creation timestamp, and last login timestamp. Expose backend functions to create accounts, authenticate (verify credentials), and retrieve user profile by ID.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-last"
+        ],
+        "quotes": [
+          "add backend storage for user accounts and their data",
+          "User profiles"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend stores user account records with email, hashed password, display name, and timestamps",
+        "A `registerUser` function creates a new account and returns an error if the email already exists",
+        "An `loginUser` function verifies credentials and returns the user profile on success or an error on failure",
+        "A `getUserProfile` function returns profile data for a given user ID",
+        "Data persists across canister upgrades"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Add backend storage in the Motoko actor for feedback submissions. Each feedback record should store: unique submission ID, the submitting user's ID (or anonymous marker), name, email, message content, and submission timestamp. Expose a `submitFeedback` function to save feedback and a `getAllFeedback` function restricted to admins to retrieve all submissions.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-last"
+        ],
+        "quotes": [
+          "Feedback submissions"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend stores feedback records with name, email, message, user ID, and timestamp",
+        "`submitFeedback` saves a new feedback entry and returns success",
+        "`getAllFeedback` returns all feedback entries and is restricted to admin callers",
+        "Feedback data persists across canister upgrades"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Add backend storage in the Motoko actor for user-generated content. Each content record should store: unique content ID, owning user's ID, content type (e.g. review, post), content body text, and creation timestamp. Expose functions to create, retrieve by user, and retrieve all (admin-only) user-generated content entries.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-last"
+        ],
+        "quotes": [
+          "Any user-generated content"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend stores user-generated content records with owner ID, content type, body, and timestamp",
+        "A `createContent` function adds a new content entry linked to a user",
+        "A `getContentByUser` function returns all content for a given user ID",
+        "A `getAllContent` admin-only function returns all content entries",
+        "Content data persists across canister upgrades"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Update the frontend FeedbackForm component to call the backend `submitFeedback` function via the actor, so feedback is actually stored in the backend instead of only showing a local success message.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-last"
+        ],
+        "quotes": [
+          "Feedback submissions"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Submitting the feedback form sends the data to the backend canister",
+        "A success toast is shown after backend confirmation",
+        "An error toast is shown if the backend call fails"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not remove or break the existing Internet Identity authentication flow",
+    "All backend logic must remain in the single main.mo actor file",
+    "Passwords must not be stored in plaintext — use a hashed representation",
+    "Immutable frontend paths (useInternetIdentity.ts, useActor.ts, main.tsx, components/ui) must not be modified"
+  ],
+  "nonGoals": [
+    "Removing Internet Identity as an authentication method",
+    "Building a full admin UI dashboard for viewing feedback (only backend storage and retrieval function)",
+    "Email verification or password reset flows",
+    "Third-party OAuth providers"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

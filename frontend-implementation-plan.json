@@ -1,0 +1,72 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Bigger Header Logo + Username/Password Auth + Backend User Data Storage",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Increase the TAPI OK brand logo size in the header while maintaining responsive layout",
+      "acceptanceCriteria": [
+        "The header logo is visually larger than before",
+        "The logo does not overflow or break the header layout on any screen size",
+        "The logo aspect ratio is preserved"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Increase the size of the logo image element in the header. Update the width/height attributes or CSS classes (e.g., change from w-8 h-8 to w-12 h-12 or w-16 h-16) to make the logo noticeably larger. Ensure the logo remains responsive on mobile by testing different breakpoints and adjusting if necessary."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add username/password authentication as an alternative to Internet Identity in the auth modal",
+      "acceptanceCriteria": [
+        "Users can register with an email/username and password",
+        "Users can log in with their email/username and password from any device",
+        "Login succeeds and fails with appropriate error messages",
+        "Both Internet Identity and username/password options are visible in the auth modal",
+        "Credentials are validated (non-empty, password minimum length)"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/AuthModal.tsx",
+          "operation": "modify",
+          "description": "Update the AuthModal to include both Internet Identity and username/password authentication options. Add a tab or toggle to switch between 'Internet Identity' and 'Email/Password' authentication methods. For the email/password tab, keep the existing login/signup forms with email and password fields, validation, and password strength indicator. Wire the login/signup buttons to call the InternalAuthContext methods (login/signup). Ensure both authentication methods are clearly labeled and accessible."
+        },
+        {
+          "path": "frontend/src/contexts/InternalAuthContext.tsx",
+          "operation": "modify",
+          "description": "Update the InternalAuthContext to integrate with the backend user account storage. Modify the signup function to call the backend `createUserAccount` function (passing username, email, displayName) and store the returned user ID. Update the login function to call a backend authentication function (if available) or verify credentials client-side against stored user data. Ensure proper error handling for duplicate emails, invalid credentials, and backend failures. Store the authenticated user ID and profile in context state and localStorage."
+        },
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Add React Query mutation hooks for user registration and login. Create `useRegisterUser` mutation that calls `actor.createUserAccount(username, email, displayName)`. Create `useLoginUser` mutation that authenticates user credentials (implementation depends on backend authentication function availability). Include proper error handling and loading states for both mutations."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Wire the FeedbackForm to call the backend submitFeedback function for persistent storage",
+      "acceptanceCriteria": [
+        "Submitting the feedback form sends the data to the backend canister",
+        "A success toast is shown after backend confirmation",
+        "An error toast is shown if the backend call fails"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Update the feedback form submission handler to call the backend `submitFeedback` function via the actor. Pass the user ID (from InternalAuthContext or null if anonymous), name, email, and message to the backend. Replace the local-only success message with a backend call. Show a success toast notification after the backend confirms the submission. Show an error toast if the backend call fails or throws an exception. Ensure the form is cleared on successful submission."
+        },
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Add a React Query mutation hook `useSubmitFeedback` that calls `actor.submitFeedback(userId, name, email, message)`. Include proper error handling, loading states, and success callbacks for toast notifications. Return the mutation object for use in the ContactPage component."
+        }
+      ]
+    }
+  ]
+}

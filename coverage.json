@@ -1,0 +1,97 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-24T18:49:00.574Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 6,
+    "implemented": 3,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Increase the size of the TAPI OK brand logo displayed in the header. The logo should be noticeably larger than its current size while remaining proportional and not breaking the header layout on desktop or mobile views.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Header.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Header.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Add traditional username/password authentication as an alternative login method alongside the existing Internet Identity option. Users should be able to register a new account with a username/email and password, and log in with those credentials from any device without device-linking requirements. The AuthModal and login UI should present both options clearly.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/AuthModal.tsx",
+          "frontend/src/contexts/InternalAuthContext.tsx",
+          "frontend/src/hooks/useQueries.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/AuthModal.tsx",
+          "frontend/src/contexts/InternalAuthContext.tsx",
+          "frontend/src/hooks/useQueries.ts"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Add backend storage in the Motoko actor for user accounts created via username/password authentication. Each account record should store: unique user ID, username/email, hashed password, display name, creation timestamp, and last login timestamp. Expose backend functions to create accounts, authenticate (verify credentials), and retrieve user profile by ID.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Add backend storage in the Motoko actor for feedback submissions. Each feedback record should store: unique submission ID, the submitting user's ID (or anonymous marker), name, email, message content, and submission timestamp. Expose a `submitFeedback` function to save feedback and a `getAllFeedback` function restricted to admins to retrieve all submissions.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-5",
+        "summary": "Add backend storage in the Motoko actor for user-generated content. Each content record should store: unique content ID, owning user's ID, content type (e.g. review, post), content body text, and creation timestamp. Expose functions to create, retrieve by user, and retrieve all (admin-only) user-generated content entries.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-6",
+        "summary": "Update the frontend FeedbackForm component to call the backend `submitFeedback` function via the actor, so feedback is actually stored in the backend instead of only showing a local success message.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/ContactPage.tsx",
+          "frontend/src/hooks/useQueries.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/ContactPage.tsx",
+          "frontend/src/hooks/useQueries.ts"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "backend/migration.mo",
+    "build-request.json",
+    "caffeine.lock.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/AuthModal.tsx",
+    "frontend/src/components/Header.tsx",
+    "frontend/src/contexts/InternalAuthContext.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/pages/ContactPage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}
